@@ -2,12 +2,9 @@
 
 > Similar Homes Photo Carousel
 
-## Related Projects
-
-  - https://github.com/Archon-Design/AffordabilityCalculator
-  - https://github.com/Archon-Design/Local-Review
-  - https://github.com/Archon-Design/PhotoGallery-rev1
-  - https://github.com/Archon-Design/similar-homes-proxy
+## Summary
+This component uses a postgresql database to find home listings
+similar to a single listing, and renders them on a carousel via react.
 
 ## Snapshot of Component
 
@@ -15,11 +12,9 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
+1. [Requirements](#Requirements)
+1. [Development](#Development)
+1. [Endpoints](#Endpoints)
 
 > Some usage instructions
 
@@ -28,7 +23,7 @@
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- MongoDB v4.4.0
+- PostgreSQL 13.1
 
 ## Development
 
@@ -46,4 +41,54 @@ npm run seed : seeds the database.
 npm run start : Will start the server and setup the project.
 
 npm run test : runs testing suite and gives a coverage report.
-```# similar-homes
+```
+## Routes
+### GET
+```javascript
+/api/similar/:id
+```
+> Use:
+Find a selection of listings similar to a
+listing id
+<br>
+> Request:
+Params: home id
+<br>
+> Response:
+[{home1}, {home2}, {home3}...]
+
+### POST
+```javascript
+/api/similar/:id
+```
+> Use:
+Add a home listing
+<br>
+> Request:
+body: {newHome}
+> Response:
+201 CREATED
+### PATCH
+```javascript
+/api/similar/:id
+```
+> Use:
+Change a listings info
+<br>
+> Resuest:
+Params: home id
+Body: { listing updates }
+<br>
+> Response:
+200 OK
+### DELETE
+```javascript
+/api/similar/:id
+```
+> Use:
+Remove a home from the listings
+<br>
+> Request:
+Params: home id
+> Response:
+200 OK
