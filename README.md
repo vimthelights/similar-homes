@@ -92,3 +92,4 @@ Remove a home from the listings
 Params: home id
 > Response:
 200 OK
+
